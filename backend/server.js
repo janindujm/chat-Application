@@ -1,9 +1,14 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const chats = require("./data/data");
+const { connect } = require("mongoose");
+const ConnectDB = require("./config/db");
 
-const app = express()
 dotenv.config();
+
+ConnectDB();
+const app = express()
+
 
 app.get('/',(req,res)=>{
     res.send("Api is running Successfully")
